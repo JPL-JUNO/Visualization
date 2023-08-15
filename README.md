@@ -10,6 +10,5 @@
 | Python               | matplotlib    | Python 数据可视化之 Matplotlib 精进                         | Waiting | 📑     |
 | Python               | matplotlib    |                                                             | Waiting | 📑     |
 
-```html
 <a href="https://www.oreilly.com/library/view/r-graphics-cookbook/9781491978597/"><img src="https://learning.oreilly.com/library/cover/9781491978597/250w/" width=100px></a>
-```
+
