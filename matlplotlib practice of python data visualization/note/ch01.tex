@@ -1,1 +1,22 @@
-\chapter{\label{ch01}}
+\chapter{使用函数绘制 matplotlib 的图表组成元素\label{ch01}}
+\section{绘制 matplotlib 图表组成元素的主要函数}
+在一个图形输出窗口中，底层是一个 Figure 实例，我们通常称之为画布，包含一些可见和不可见的元素。
+
+在画布上，自然是图形，这些图形就是 Axes 实例，Axes 实例几乎包含了我们要介绍的 matplotlib组成元素，例如坐标轴、刻度、标签、线和标记等。Axes 实例有 x 轴和 y 轴属性，也就是可以使用 Axes.xaxis 和 Axes.yaxis 来控制 x 轴和 y 轴的相关组成元素，例如刻度线、刻度标签、刻度线定位器和刻度标签格式器。
+\figures{fig1-1}{图的组成元素。以改图为切入点，从这些函数的函数功能、调用签名、参数说明和调用展示四个方面来全面阐述 API 函数的使用方法和技术细节。}
+\section{绘制 matplotlib 图表组成元素的函数用法}
+\begin{table}
+    \centering
+    \begin{tabular}{ll}
+        \hline
+        函数名       & 函数功能           \\
+        \hline
+        plot()    & 展现变量的趋势变化      \\
+        scatter() & 寻找变量之间的关系      \\
+        xlim()    & 设置 x 轴的数值显示范围  \\
+        xlabel()  & 设置 x 轴的标签文本    \\
+        grid()——绘制刻度线的网格线          \\
+        axhline()——绘制平行于 x 轴的水平参考线 \\
+        \hline
+    \end{tabular}
+\end{table}
