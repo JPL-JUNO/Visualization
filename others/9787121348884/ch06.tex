@@ -1,0 +1,23 @@
+\chapter{划分画布的主要函数}
+子区顾名思义就是将画布分成若干子画布，这些子画布构成绘图区域，在这些绘图区域上分别绘制图形。因此，子区的本质就是在纵横交错的行列网格中，添加绘图坐标轴。这样就实现了一张画布多张图形分区域展示的效果。这也是组织子区相关代码的逻辑顺序。
+\section{函数 subplot()：绘制网格区域中的几何形状相同的子区布局}
+这个函数是专门用来绘制网格区域中的几何形状相同的子区布局。子区函数的调用签名可以是
+\begin{verbatim}
+    subplot(numRows, numCols, plotNum)
+\end{verbatim}
+也可以是
+\begin{verbatim}
+    subplot(CRN)
+\end{verbatim}
+如果子区函数 subplot()的三个参数分别是整数 C、整数 R 和整数 P，即 subplot(C, R, P)，那么这三个整数就表示在 C 行、R 列的网格布局上，子区 subplot() 会被放置在第 P 个位置上，即为将被创建的子区编号，子区编号从 1 开始，起始于右上角，序号依次向右递增。也就是说，每行的子区位置都是从左向右进行升序计数的，即 subplot(2, 3, 4) 是第 2 行的第 1 个子区。
+\section{函数 subplot2grid()：让子区跨越固定的网格布局}
+子区函数只能绘制等分画布形式的图形样式，要想按照绘图区域的不同展示目的，进行非等分画布形式的图形展示，需要向画布多次使用子区函数 subplot() 完成非等分画布的展示任务，但是这么频繁地操作显得非常麻烦，而且在划分画布时易于出现疏漏和差错。因此，我们需要用高级的方法使用子区，需要定制化的网格区域，这个函数就是 subplot2grid()，通过使用 subplot2grid() 函数的 rowspan 和 colspan 参数可以让子区跨越固定的网格布局的多个行和列，实现不同的子区布局。
+
+调用函数 subplot2grid(shape, loc)，将参数 shape 所划定的网格布局作为绘图区域，实现 在参数 loc 位置处绘制图形的目的。
+\subsection{延伸阅读——模块 gridspec 中的类 GridSpec 的使用方法}
+在 matplotlib 中，存在一个模块 gridspec。模块 gridspec 是一个可以指定画布中子区位置或者说是布局的“分区”模块。在模块 gridspec 中，有一个类 GridSpec。类 GridSpec 可以指定网格的几何形状，也就是说，可以划定一个子区的网格状的几何结构。我们需要设定网格的行数和列数，以此确定子区的划分结构样式。
+\section{函数 subplots()：创建一张画布带有多个子区的绘图模式}
+使用函数 subplots()，只用一句 matplotlib.pyplot.subplots() 调用命令就可以非常便捷地创建 1 行 1 列的网格布局的子区，而且同时创建一个画布对象。也就是说，函数 subplots() 的返回值是一个(fig，ax) 元组，其中，fig 是 Figure 实例，ax 可以是一个 axis 对象，如果是多个子区被创建，那么ax 可以是一个 axis 对象数组。因此，使用函数 subplots() 可以创建一张画布带有多个子区的绘图模式的网格布局。
+\begin{tcolorbox}
+    如果我们想要改变子区边缘相距画布边缘的距离和子区边缘之间的高度与宽度的距离，可以调用函数 subplots\_adjust(*agrs, **kwargs)进行设置，其中的关键字参数 left、right、bottom、top、hspace和 wspace 都有默认值，而且是使用 Axes 坐标轴系统度量的，即使用闭区间 [0,1] 的浮点数，前四个关键字参数可以调节子区距离画布的距离，关键字参数 wspace 控制子区之间的宽度距离，关键字参数 hspace 控制子区之间的高度距离。因此，借助函数 subplots\_adjust()可以有效实现子区的画布布局的空间位置的调整。
+\end{tcolorbox}
