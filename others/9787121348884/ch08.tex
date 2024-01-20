@@ -1,0 +1,27 @@
+\chapter{坐标轴高阶应用\label{ch08}}
+\section{设置坐标轴的位置和展示形式}
+不同于使用子区函数 subplot()、subplot2grid()和模块 matplotlib.gridspec 构建子区的方法，这些方法都只能在规则网格内进行视图布局。也就是说，只能在横纵交错的网格区域绘制子区模式，无法完成子区的交错、覆盖和重叠等视图组合模式。
+
+函数
+\begin{verbatim}
+    axes(rect, frameon=True, facecolor="y")
+\end{verbatim}
+的参数含义分别如下所示：
+\begin{itemize}
+    \item 关键字参数 rect 也就是列表 rect=[left,bottom,width,height]，列表 rect 中的 left 和 bottom 两个元素分别表示坐标轴的左侧边缘和底部边缘距离画布边缘的距离，width 和 height 两个元素分别表示坐标轴的宽度和高度，left 和 width 两个元素的数值都是画布宽度的归一化距离，bottom 和 height 两个元素的数值都是画布高度的归一化距离。
+    \item 关键字参数 frameon 的含义是如果布尔型参数 frameon 取值 True，则绘制坐标轴的四条轴脊；否则，不绘制坐标轴的四条轴脊。
+    \item 关键字参数 facecolor 的含义是填充坐标轴背景的颜色。
+\end{itemize}
+
+我们也可以通过调用函数 axis() 实现绘制坐标轴，再绘制图形的可视化需求。
+\section{使用两种方法控制坐标轴刻度的显示}
+一种
+方法是利用 matploblib 的面向对象的 Axes.set\_xticks()和 Axes.set\_yticks() 实例方法，实现不画坐标轴刻度的需求；另一种方法是调用模块 pyplot的 API，使用函数 setp() 设置刻度元素（ticklabel 和tickline），更新显示属性的属性值为 False。
+
+我们可以通过 Line2D 实例的方法 set\_attr(attrValue)实现改变实例属性值的目标，其中，attr 代表 Line2D 实例的属性，attrValue 代表 Line2D 实例的 attr 属性的属性值。
+\section{控制坐标轴的显示}
+控制坐标轴显示主要是通过控制坐标轴的载体（轴脊）的显示来实现的，在轴脊上有刻度标签和刻度线，它们共同组成了坐标轴。因此，控制坐标轴显示是综合通过控制轴脊和刻度线的显示来完成的。
+
+在一个绘图区域中，有 4 条轴脊，分别是顶边框、右边框、底边框和左边框，这 4 条轴脊是 4 条坐标轴的载体，起到显示刻度标签和刻度线的作用。
+\section{移动坐标轴的位置}
+所谓移动坐标轴的位置就是移动坐标轴的载体（轴脊）的位置，进而设置刻度线的位置，从而完成移动坐标轴的位置的任务。
