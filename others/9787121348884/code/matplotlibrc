@@ -1,2 +1,8 @@
-lines.linewidth: 9.0
+lines.linewidth: 1.0
 lines.linestyle: --
+text.color:blue
+font.family:serif
+font.style: normal
+font.variant: small-caps
+font.weight:black
+font.sans-serif:SimHei
