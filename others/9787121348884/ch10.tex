@@ -1,0 +1,39 @@
+\chapter{matplotlib 的配置\label{ch10}}
+修改 matplotlib 的配置有两种途径：一种是通过代码进行修改；另一种是通过修改配置文件 matplotlibrc 来实现。这两种设置方法可以分别理解成：一种是局部调整；另一种是全局修改。
+\section{修改代码层面的 matplotlib 的配置}
+在代码实现方面，有两种方法实现改变 matplotlib 的相关属性值：一种是调用属性字典 matplotlib.rcParams 或是属性字典 matplotlib.pyplot.rcParams；另一种是调用函数 matplotlib.rc() 或是函数 matplotlib.pyplot.rc()。
+
+如果需要恢复标准的 matplotlib 默认设置，则可以调用函数 matplotlib.rcdefaults() 或是函数 matplotlib.pyplot.rcdefaults()。
+
+通过调用函数 matplotlib.rc()，我们可以将相关属性以关键字参数的形式进行赋值，从而改变 matplotlib 的相关属性值。也可以将属性和属性值放在一个字典中，将字典作为关键字参数，以 **dict 形式进行参数调用，最终改变 matplotlib 的相关属性值。
+
+通过调用属性字典 matplotlib.rcParams，利用属性字典的属性名、属性值的对应关系与更新字典键值的方法，就可以改变 matplotlib 的相关属性值。
+
+\section{修改项目层面的 matplotlib 配置}
+\subsection{配置文件所在路径}
+在一个项目中，通常会由很多个子项目组成，如果在每个子项目中都进行相同的 matplotlib 配置的设置，则会严重影响项目的进展速度和项目之间的协同配合。这时就可以在项目中使用一个独立于项目本身的 matplotlib 配置的设置方法，也就是在项目中使用 matplotlibrc 文件进行 matplotlib 配置的设置。这种设置方式可以使得 matplotlib 配置与代码分离，从而使代码更加简洁，很容易在项目间分享配置模板，提高协同工作的效率。
+
+在项目层面修改 matplotlib 配置时，主要基于配置文件 matplotlibrc 所在的位置。配置文件主要存在于以下三种路径中，不同的路径决定了配置文件的调用顺序，下面就是配置文件 matplotlibrc 的使用先后顺序。
+\begin{enumerate}
+    \item 项目所在路径：matplotlibrc 文件在当前运行代码所在的目录中。
+    \item 配置文件的默认路径：
+    \item matplotlib 的安装路径
+\end{enumerate}
+
+每次重新安装 matplotlib 时，matplotlibrc 配置文件都会被覆盖。因此，当需要 matplotlibrc 配置文件被持久有效保存时，就需要将 matplotlibrc 配置文件移动到配置文件的默认目录中。
+
+通过调用函数 matplotlib.matplotlib\_fname()，可以输出系统在项目本身包含配置文件 matplotlibrc 之外的调用配置文件的搜索路径。
+
+配置文件 matplotlibrc 主要包括以下配置要素。
+\begin{itemize}
+    \item lines：设置线条属性，包括颜色、线条风格、线条宽度和标记风格等。
+    \item patch：填充 2D 空间的图形对象，包括多边形和圆。
+    \item font：字体类别、字体风格、字体粗细和字体大小等。
+    \item text：文本颜色、LaTex 渲染文本等。
+    \item axes：坐标轴的背景颜色、坐标轴的边缘颜色、刻度线的大小、刻度标签的字体大小等。
+    \item xtick 和 ytick：x 轴和 y 轴的主次要刻度线的大小、宽度、刻度线颜色和刻度标签大小等。
+    \item grid：网格颜色、网格线条风格、网格线条宽度和网格透明度。
+    \item legend：图例的文本大小、阴影、图例线框风格等。
+    \item figure：画布标题大小、画布标题粗细、画布分辨率（dpi）、画布背景颜色和边缘颜色等。
+    \item savefig：保存画布图像的分辨率、背景颜色和边缘颜色等。
+\end{itemize}
