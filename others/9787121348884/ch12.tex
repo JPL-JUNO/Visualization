@@ -1,0 +1,17 @@
+\chapter{颜色使用\label{ch12}}
+\section{使用颜色参数和颜色映射表}
+颜色参数 color 有以下几种使用模式：
+\begin{itemize}
+    \item 模式 1：英文缩写模式的基本颜色
+    \item 模式 2：Hex 模式的 \#RRGGBB 字符串
+    \item 模式 3：HTML/CSS 模式的颜色名
+    \item Decimal 模式的归一化到 [0,1] 的 (R,G,B) 元组 color =(0.5294,0.8078,0.9216)
+\end{itemize}
+\subsection{颜色映射表的使用}
+Matplotlib 提供很多颜色映射表，可以通过 matplotlib.cm.register\_cmap() 函数将新的颜色映射表添加到 matplotlib 中；可以通过 matplotlib.pyplot.colormaps() 函数获得全部可用的颜色映射表；可以在 image、pcolor 和 scatter 上设置颜色映射表。目前，主要有两种使用颜色映射表的方法，具体如下所示。
+\begin{itemize}
+    \item 使用关键字参数
+    \item 使用 matplotlib.pyplot.set\_cmap() 函数
+\end{itemize}
+
+值得注意的是，全部内置的颜色映射表都可以通过增加后缀 ``\_r" 的方式进行反转，例如 ``jet\_r" 就是 ``jet" 的反向循环颜色映射表
