@@ -7,6 +7,8 @@
 @Description  : 水平方向的交叉曲线的颜色填充方法
 """
 
+# 调用实例方法 fill_between()，通过使用参数 where 的条件表达式参数值，实现满足具体条
+# 件的指定区域的颜色填充的目标
 import matplotlib.pyplot as plt
 import numpy as np
 
