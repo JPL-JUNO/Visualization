@@ -53,9 +53,9 @@ colors = ["steelblue", "darkred", "lightgreen"]
 # ]:
 for wedge in wedges:
     ax.add_patch(wedge)
-ax.text(1.7, 2.5, f"{percents[0]:3.1f}%", **font_style)
-ax.text(1.2, 1.7, f"{percents[1]:3.1f}%", **font_style)
-ax.text(1.7, 1.2, f"{percents[2]:3.1f}%", **font_style)
-ax.text(2.5, 1.7, f"{percents[3]:3.1f}%", **font_style)
+ax.text(1.7, 2.5, f"{percents[0]*100:3.1f}%", **font_style)
+ax.text(1.2, 1.7, f"{percents[1]*100:3.1f}%", **font_style)
+ax.text(1.7, 1.2, f"{percents[2]*100:3.1f}%", **font_style)
+ax.text(2.5, 1.7, f"{percents[3]*100:3.1f}%", **font_style)
 ax.axis([0, 4, 0, 4])
 plt.show()
