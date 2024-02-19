@@ -8,8 +8,7 @@
 """
 
 import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib.patches import Shadow, Wedge
+from matplotlib.patches import Wedge
 
 fig, ax = plt.subplots(subplot_kw={"aspect": "equal"})
 font_style = {"family": "serif", "size": 12, "style": "italic", "weight": "black"}
