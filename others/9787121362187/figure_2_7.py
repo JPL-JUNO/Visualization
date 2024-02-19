@@ -17,6 +17,7 @@ total = sum(sample_data)
 percents = [i / float(total) for i in sample_data]
 angles = [360 * i for i in percents]
 delta = 45
+# 突出显式 wedge1 扇叶
 wedge1 = Wedge((2, 2), 1, delta, delta + sum(angles[0:1]), color="orange")
 wedge2 = Wedge(
     (2, 1.9),
